@@ -2,19 +2,23 @@ class Paciente:
     def __init__(self, nome, idade):
         self.nome = nome
         self.idade = idade
+        self.historico_consultas = []
 
+    def adicionar_consulta(self, consulta):
+        self.historico_consultas.append(consulta)
+        print(f"Consulta '{consulta}' adicionada ao histórico de {self.nome}.")
 
-    def historico_consultas(self):
-        lista = ["cardiologia", "oncologia", "gastroenterologia", "dermatologia", "neurologia", "psiquiatria"]
-        print(f"Esses são os exames que {self.nome} precisa fazer: \n{lista}")
-        adicionar = input("Deseja adicionar mais algume exame a lista?")
-        if adicionar == "sim":
-            novo_exame = input("Escreva o nome do exame que deseja adicionar: ")
-            lista.append(novo_exame)
-            print(f"Lista de exames atualizada:\n {lista}")
-
+    def exibir_consultas(self):
+        if not self.historico_consultas:
+            print(f"O paciente {self.nome} ainda não realizou nenhuma consulta.")
         else:
-            print("Nenhum exame será adicionado!")
+            print(f"Histórico de consultas do paciente {self.nome}:")
+            for i, consulta in enumerate(self.historico_consultas, 1):
+                print(f"{i}. {consulta}")
 
-paciente = Paciente("jumilya", "25")
-paciente.historico_consultas()
+
+paciente = Paciente("Jumilya", 25) 
+
+paciente.adicionar_consulta("Cardiologia")
+paciente.adicionar_consulta("Dermatologia")
+paciente.exibir_consultas()

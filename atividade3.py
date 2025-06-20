@@ -3,17 +3,12 @@ class Retangulo:
         self.largura = largura
         self.altura = altura
 
-    def area (self, base):
-        self.base = base
-        base = 10
-        calculo = base * self.altura
-        return calculo
-    
-    def perimetro (self, comprimento):
-        self.comprimento = comprimento
-        calculo = 2 * comprimento * self.largura
-        return calculo
-    
+    def area(self):
+        return self.largura * self.altura
+
+    def perimetro(self):
+        return 2 * (self.largura + self.altura)
+
 retangulo = Retangulo(10, 25)
-print(f"O valor da área é de: {retangulo.area(10)}cm")
-print(f"O valor do perimetro é de: {retangulo.perimetro(20)}cm")
+print(f"O valor da área é: {retangulo.area()}cm²")
+print(f"O valor do perímetro é: {retangulo.perimetro()}cm")
